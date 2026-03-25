@@ -1,8 +1,9 @@
 # barber-booking-app
-A modern web application built with **Laravel 11** that allows users to book barber appointments, manage schedules, and browse available services.
+A modern web application built with **Laravel 12** that allows users to book barber appointments, manage schedules, and browse available services.
 
 ## Prerequisites
-- **PHP 8.2+** (with following extensions enabled):
+- **PHP 8.2+** (tested on PHP 8.4)
+    - Required extensions:
     - `openssl`, `pdo_mysql`, `mbstring`, `curl`, `fileinfo`, `intl`, `bcmath`, `ctype`, `tokenizer`, `xml`, `gd`, `zip`
 - **Composer**
 - **Docker**
@@ -25,9 +26,9 @@ composer run dev
 ```
 
 ## Services
-|Service|URL|Description|
-|-|-|-|
-|**Web app**|[http://localhost:8000](http://localhost:8000)|App interface|
-|**Mailpit UI**|[http://localhost:8025](http://localhost:8000)|Email inbox (for testing)|
-|**MariaDB**|`localhost:3306`|Database|
-|**Redis**|`localhost:6379`|Cache & sessions|
+|Service| URL                                            |Description|
+|-|------------------------------------------------|-|
+|**Web app**| [http://localhost:8000](http://localhost:8000) |App interface|
+|**Mailpit UI**| [http://localhost:8025](http://localhost:8025) |Email inbox (for testing)|
+|**MariaDB**| `localhost:3306`                               |Database|
+|**Redis**| `localhost:6379`                               |Cache & sessions|
