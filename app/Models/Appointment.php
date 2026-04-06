@@ -30,4 +30,11 @@ class Appointment extends Model
     {
         return $this->belongsTo(Service::class);
     }
+    protected function casts(): array
+    {
+        return [
+            'start_time' => 'datetime',
+            'end_time' => 'datetime',
+        ];
+    }
 }
