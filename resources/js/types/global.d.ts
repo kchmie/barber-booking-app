@@ -6,7 +6,12 @@ declare module '@inertiajs/core' {
             name: string;
             auth: Auth;
             sidebarOpen: boolean;
+            locale: string;
+            translations: Record<string, string>
             [key: string]: unknown;
         };
     }
 }
+
+type SharedTranslationValue = string | SharedTranslations;
+type SharedTranslations = Record<string, SharedTranslationValue>;
