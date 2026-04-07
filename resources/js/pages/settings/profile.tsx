@@ -91,6 +91,22 @@ export default function Profile({
                                     />
                                 </div>
 
+                                <div className="grid gap-2">
+                                    <Label htmlFor="phone">Phone number</Label>
+                                    <Input
+                                        id="phone"
+                                        type="tel"
+                                        required
+                                        tabIndex={2}
+                                        defaultValue={auth.user.phone}
+                                        pattern="[0-9]*"
+                                        inputMode="numeric"
+                                        name="phone"
+                                        placeholder="123456789"
+                                    />
+                                    <InputError className="mt-2" message={errors.phone} />
+                                </div>
+
                                 {mustVerifyEmail &&
                                     auth.user.email_verified_at === null && (
                                         <div>
@@ -109,12 +125,12 @@ export default function Profile({
 
                                             {status ===
                                                 'verification-link-sent' && (
-                                                <div className="mt-2 text-sm font-medium text-green-600">
-                                                    A new verification link has
-                                                    been sent to your email
-                                                    address.
-                                                </div>
-                                            )}
+                                                    <div className="mt-2 text-sm font-medium text-green-600">
+                                                        A new verification link has
+                                                        been sent to your email
+                                                        address.
+                                                    </div>
+                                                )}
                                         </div>
                                     )}
 
