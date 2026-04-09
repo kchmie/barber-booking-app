@@ -3,6 +3,8 @@ import { dashboard, login, register } from '@/routes';
 import { useTrans } from '@/hooks/use-trans';
 import { Button } from '@/components/ui/button';
 import language from '@/routes/language';
+import LangSwitch from '@/components/lang-switch';
+import AppLogoIcon from '@/components/app-logo-icon';
 
 export default function Welcome({
     canRegister = true,
@@ -11,10 +13,6 @@ export default function Welcome({
 }) {
     const { auth, locale } = usePage().props;
     const { __ } = useTrans();
-
-    const changeLanguage = (lang: string) => {
-        router.post(language.update(), { language: lang });
-    };
 
     return (
         <>
@@ -54,23 +52,20 @@ export default function Welcome({
                             </>
                         )} */}
 
-                        <div className='text-2xl'>
-                            {locale == "pl" && 
-                                <button className="cursor-pointer" onClick={() => changeLanguage("en")}>🇬🇧</button> || 
-                                <button className="cursor-pointer" onClick={() => changeLanguage("pl")}>🇵🇱</button>}
-                        </div>
+                        <LangSwitch />
                         
                     </nav>
                 </header>
                 <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
+                    
                     <h1 className="mb-1 text-xl font-medium text-primary text-center">
-                        <div className="mb-5">{__("welcome")}</div>
+                        <div className="mb-5">{__("Welcome to our barber booking app!")}</div>
                         <div className="flex items-center justify-center gap-5">
                             <Link><Button size="lg" className='cursor-pointer'>
-                                {__("make a reservation")}
+                                {__("Make a reservation")}
                             </Button></Link>
                             <Link href={auth.user && dashboard() || login()}><Button variant="outline" size="lg" className='cursor-pointer'>
-                                {__("check reservation")}
+                                {__("Check your reservations")}
                             </Button></Link>
                         </div>
                     </h1>

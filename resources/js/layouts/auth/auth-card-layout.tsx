@@ -9,6 +9,7 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { home } from '@/routes';
+import LangSwitch from '@/components/lang-switch';
 
 export default function AuthCardLayout({
     children,
@@ -26,14 +27,17 @@ export default function AuthCardLayout({
                     href={home()}
                     className="flex items-center gap-2 self-center font-medium"
                 >
-                    <div className="flex h-9 w-9 items-center justify-center">
+                    {/* <div className="flex h-9 w-9 items-center justify-center">
                         <AppLogoIcon className="size-9 fill-current text-black dark:text-white" />
-                    </div>
+                    </div> */}
                 </Link>
 
                 <div className="flex flex-col gap-6">
                     <Card className="rounded-xl">
-                        <CardHeader className="px-10 pt-8 pb-0 text-center">
+                        <CardHeader className="px-10 pt-0 pb-0 text-center">
+                            <div className='flex flex-row-reverse'>
+                                <LangSwitch />
+                            </div>
                             <CardTitle className="text-xl">{title}</CardTitle>
                             <CardDescription>{description}</CardDescription>
                         </CardHeader>

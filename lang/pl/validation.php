@@ -13,6 +13,11 @@ return [
     |
     */
 
+    'attributes' => [
+        'phone' => 'numer telefonu',
+        'email' => 'adres e-mail',
+    ],
+
     'accepted' => 'Pole :attribute musi zostać zaakceptowane.',
     'accepted_if' => 'Pole :attribute musi zostać zaakceptowane, gdy :other jest równe :value.',
     'active_url' => 'Pole :attribute musi być prawidłowym adresem URL.',
