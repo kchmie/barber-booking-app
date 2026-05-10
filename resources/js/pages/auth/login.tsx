@@ -11,6 +11,7 @@ import AuthLayout from '@/layouts/auth-layout';
 import { register } from '@/routes';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
+import { useTrans } from '@/hooks/use-trans';
 
 type Props = {
     status?: string;
@@ -23,12 +24,14 @@ export default function Login({
     canResetPassword,
     canRegister,
 }: Props) {
+    const { __ } = useTrans();
+
     return (
         <AuthLayout
-            title="Log in to your account"
-            description="Enter your email and password below to log in"
+            title={__("Log in to your account")}
+            description={__("Enter your email and password below to log in")}
         >
-            <Head title="Log in" />
+            <Head title={__("Log in")} />
 
             <Form
                 {...store.form()}
@@ -39,7 +42,7 @@ export default function Login({
                     <>
                         <div className="grid gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="email">{__("Email address")}</Label>
                                 <Input
                                     id="email"
                                     type="email"
@@ -48,21 +51,21 @@ export default function Login({
                                     autoFocus
                                     tabIndex={1}
                                     autoComplete="email"
-                                    placeholder="email@example.com"
+                                    placeholder={__("email@example.com")}
                                 />
                                 <InputError message={errors.email} />
                             </div>
 
                             <div className="grid gap-2">
                                 <div className="flex items-center">
-                                    <Label htmlFor="password">Password</Label>
+                                    <Label htmlFor="password">{__("Password")}</Label>
                                     {canResetPassword && (
                                         <TextLink
                                             href={request()}
                                             className="ml-auto text-sm"
                                             tabIndex={5}
                                         >
-                                            Forgot password?
+                                            {__("Forgot password?")}
                                         </TextLink>
                                     )}
                                 </div>
@@ -72,7 +75,7 @@ export default function Login({
                                     required
                                     tabIndex={2}
                                     autoComplete="current-password"
-                                    placeholder="Password"
+                                    placeholder={__("Password")}
                                 />
                                 <InputError message={errors.password} />
                             </div>
@@ -83,7 +86,7 @@ export default function Login({
                                     name="remember"
                                     tabIndex={3}
                                 />
-                                <Label htmlFor="remember">Remember me</Label>
+                                <Label htmlFor="remember">{__("Remember me")}</Label>
                             </div>
 
                             <Button
@@ -94,15 +97,15 @@ export default function Login({
                                 data-test="login-button"
                             >
                                 {processing && <Spinner />}
-                                Log in
+                                {__("Log in")}
                             </Button>
                         </div>
 
                         {canRegister && (
                             <div className="text-center text-sm text-muted-foreground">
-                                Don't have an account?{' '}
+                                {__("Don't have an account?")}{' '}
                                 <TextLink href={register()} tabIndex={5}>
-                                    Sign up
+                                    {__("Sign up")}
                                 </TextLink>
                             </div>
                         )}
