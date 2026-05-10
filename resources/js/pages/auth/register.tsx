@@ -71,7 +71,7 @@ export default function Register() {
                                     pattern="[0-9]*"
                                     inputMode="numeric"
                                     name="phone"
-                                    placeholder={__("123456789")}
+                                    placeholder={"123456789"}
                                 />
                                 <InputError message={errors.phone} />
                             </div>
