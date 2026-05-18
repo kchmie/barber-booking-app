@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import language from '@/routes/language';
 import LangSwitch from '@/components/lang-switch';
 import AppLogoIcon from '@/components/app-logo-icon';
+import { create as createAppointment } from '@/routes/appointments';
 
 export default function Welcome({
     canRegister = true,
@@ -61,7 +62,7 @@ export default function Welcome({
                     <h1 className="mb-1 text-xl font-medium text-primary text-center">
                         <div className="mb-5">{__("Welcome to our barber booking app!")}</div>
                         <div className="flex items-center justify-center gap-5">
-                            <Link><Button size="lg" className='cursor-pointer'>
+                            <Link href={auth.user && createAppointment() || register()}><Button size="lg" className='cursor-pointer'>
                                 {__("Make a reservation")}
                             </Button></Link>
                             <Link href={auth.user && dashboard() || login()}><Button variant="outline" size="lg" className='cursor-pointer'>
