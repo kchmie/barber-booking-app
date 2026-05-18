@@ -35,7 +35,7 @@ import { cn, toUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import type { BreadcrumbItem, NavItem } from '@/types';
 import { useTrans } from '@/hooks/use-trans';
-import { home } from '@/routes/index'
+import { create as createAppointment } from '@/routes/appointments'
 import LangSwitch from './lang-switch';
 
 type Props = {
@@ -45,7 +45,7 @@ type Props = {
 const mainNavItems: NavItem[] = [
     {
         title: 'Make a reservation',
-        href: home(),
+        href: createAppointment(),
         icon: NotebookPen,
     },
     {
